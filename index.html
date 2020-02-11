@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!--RWD-->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+
+    <!--main.css-->
+    <link rel="stylesheet" href="css/main.css" />
+
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!--Vue-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <!--Vuetify-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css"
+      rel="stylesheet"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
+    />
+    <!--icon-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css"
+      rel="stylesheet"
+    />
+    <title>Ready</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <v-app>
+        <v-container
+          style="padding :0;
+            margin:0;"
+          class="main-bg"
+          fluid
+        >
+          <v-row
+            style="height: 300px;
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        "
+            no-gutters
+            class="d-flex flex-row"
+          >
+            <v-col
+              cols="9"
+              style="
+            display: flex; flex-direction: row; align-items: center;"
+              class="d-flex flex-row justify-space-between"
+            >
+              <v-img
+                src="../images/logo.png"
+                style="width: 117px; height: 117px; 
+                flex:0 0 auto;"
+              ></v-img>
+
+              <v-row
+                no-gutters
+                style="height : 150px;
+              max-width: 250px;
+              "
+                class="d-flex flex-column justify-space-between"
+              >
+                <div>
+                  <p style="margin:0;" class="amber--text text-- darken-1">
+                    身高 cm
+                  </p>
+                  <input
+                    type="text"
+                    v-model="Newheight"
+                    placeholder="請輸入身高"
+                    style="border:2px solid #FFE082;
+                background-color: #424242;
+                color:#fff;
+                min-width: 250px;
+                max-height: 40px;
+                border-radius: 15px;
+                padding:5px"
+                @keyup.enter="addresult"
+                  />
+                </div>
+
+                <div>
+                  <p style="margin:0;" class="amber--text text-- darken-1">
+                    體重 kg
+                  </p>
+                  <input
+                    type="text"
+                    v-model="Newweight"
+                    placeholder="請輸入體重"
+                    style="border:2px solid #FFE082;
+                background-color: #424242;
+                color:#fff;
+                min-width: 250px;
+                max-height: 40px;
+                border-radius: 15px;
+                padding:5px"
+                @keyup.enter="addresult"
+                  />
+                </div>
+              </v-row>
+
+              <v-btn
+                color="amber lighten-3"
+                :loading="false"
+                width="100px"
+                height="100px"
+                style="border-radius: 100px; font-size: 1.5rem;
+  font-weight: bolder;"
+                class="result-btn"
+                v-on:click = "addresult"
+              >
+                <!-- {{playerData[0].result.start}} -->
+                看結果
+              </v-btn>
+            </v-col>
+          </v-row>
+
+          <v-row v-resize="onResize" style="position: absolute;"
+            >{{ windowSize }}</v-row
+          >
+        </v-container>
+        <v-row
+          no-gutters
+          style="min-height: 300px;"
+          class="d-flex flex-column align-content-center justify-start"
+
+        >
+          <h4
+            style="text-align: center;
+        font-size: 1.6rem; margin-top: 30px;"
+          >
+            BMI 紀錄
+          </h4>
+          <ul
+            style="width:100%;
+        padding:0;
+        max-width:624px;"
+          >
+            <li
+              style="width:100%; height: 62px;
+              border:1px solid gray;
+              margin-bottom:20px;"
+              class="d-flex flex-row justify-space-between align-center"
+              v-for="player in playerData"
+            >
+              <div
+                style="width:7px; height: 100%;"
+                :class="player.levelcolors"
+              ></div>
+              <p style="margin-bottom:0;">{{player.result}}</p>
+              <p style="margin-bottom:0;">BMI {{player.pbmi}}</p>
+              <p style="margin-bottom:0;">身高 {{player.pheight}}cm</p>
+              <p style="margin-bottom:0;">體重 {{player.pweight}}kg</p>
+              <p style="margin-bottom:0;"> {{player.time}}</p>
+            </li>
+          </ul>
+        </v-row>
+
+        <v-footer
+          dark
+          color="amber lighten-3"
+          height="117px"
+          :padless="false"
+          class="d-flex flex-row justify-center"
+          style="padding:0;"
+        >
+          <v-img
+            src="../images/logo.png"
+            style="width: 117px; height: 117px; 
+                flex:0 0 auto;
+                filter: brightness(0.5);"
+            contain
+          ></v-img>
+        </v-footer>
+      </v-app>
+    </div>
+    <script type="text/javascript" src="js/all.js"></script>
+    <!--Vuetify-->
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  </body>
+</html>
