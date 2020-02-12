@@ -157,9 +157,11 @@
             <li
               style="width:100%; height: 62px;
               border:1px solid gray;
-              margin-bottom:20px;"
+              margin-bottom:20px;
+              position: relative;"
               class="d-flex flex-row justify-space-between align-center"
-              v-for="player in playerData"
+              v-for="(player,key) in playerData"
+
             >
               <div
                 style="width:7px; height: 100%;"
@@ -170,6 +172,24 @@
               <p style="margin-bottom:0;">身高 {{player.pheight}}cm</p>
               <p style="margin-bottom:0;">體重 {{player.pweight}}kg</p>
               <p style="margin-bottom:0;"> {{player.time}}</p>
+              <v-btn
+              style = "border-radius:100px; 
+              top:-10px;
+              right:-10px;
+              padding:0;
+              padding-bottom: 5px;
+              min-width: 20px;"
+              width = "20px"
+              height = "20px"
+              absolute
+              color = "blue darken-2"
+             @click = "remove(player)">
+            <v-icon
+            color = "blue lighten-5"
+            style="margin-top: -2px;
+            margin-right:-1px"
+            >mdi-close</v-icon
+              ></v-btn>
             </li>
           </ul>
         </v-row>

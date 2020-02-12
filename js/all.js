@@ -96,9 +96,20 @@ $(document).ready(function() {
           pheight: addheight,
           time: nowtime
         });
-        console.log(addweight, addheight, nowtime, bmiget);
+        console.log(addweight, addheight, nowtime, bmiget,timestamp);
         this.Newweight = "";
         this.Newheight = "";
+      },
+      remove:function(someone){
+        let newkey = '';
+        let vm = this;
+        vm.playerData.forEach(function(player,key){
+          if(someone.id == player.id){
+            newkey = key;
+            console.log(newkey);
+          }
+        });
+        this.playerData.splice(newkey,1);
       }
     }
   });
