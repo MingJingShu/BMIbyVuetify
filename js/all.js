@@ -103,6 +103,7 @@ $(document).ready(function() {
       remove:function(someone){
         let newkey = '';
         let vm = this;
+        console.log('start remove');
         vm.playerData.forEach(function(player,key){
           if(someone.id == player.id){
             newkey = key;
