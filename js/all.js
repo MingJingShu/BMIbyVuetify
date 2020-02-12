@@ -10,6 +10,7 @@ $(document).ready(function() {
         x: 0,
         y: 0
       },
+      logo:{src:'../images/logo.png'},
 
       Newheight: "",
       Newweight: "",
