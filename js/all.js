@@ -10,8 +10,7 @@ $(document).ready(function() {
         x: 0,
         y: 0
       },
-      logo:{src:'https://github.com/MingJingShu/BMIbyVuetify/blob/master/images/logo.png'},
-
+      logo:{src:'https://mingjingshu.github.io/BMIbyVuetify/images/logo.png'},
       Newheight: "",
       Newweight: "",
       playerData: [
